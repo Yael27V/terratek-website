@@ -2,77 +2,86 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - Terratek Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto — Terratek Solutions</title>
+  <meta name="description" content="Contáctanos para cotizaciones y programación de servicios con dron agrícola." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav-container">
-        <img src="assets/img/logo.png" alt="Terratek Solutions Logo" class="logo">
-        <button class="menu-toggle" id="menuToggle">☰ Menú</button>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="about.html">Quiénes somos</a>
-            <a href="services.html">Servicios</a>
-            <a href="contact.html">Contacto</a>
-        </nav>
+  <header role="banner">
+    <div class="container nav">
+      <a href="index.html" class="brand"><img src="assets/img/logo-fondo.png" alt="Terratek Solutions" class="logo" style="width: 150px; height: auto" /></a>
+      <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="siteNav">☰</button>
+      <nav id="siteNav">
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Quiénes somos</a>
+        <a href="services.html">Servicios</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <section class="page-header">
-      <div class="container">
-        <h1>Contacto</h1>
-        <p>Estamos listos para atenderte y llevar la tecnología al campo.</p>
+  <section class="page-hero">
+    <div class="container center">
+      <h1>Contacto</h1>
+      <p class="muted">Estamos listos para atenderte y llevar la tecnología al campo.</p>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container grid g2 contact">
+      <div class="card">
+        <h2>Envíanos un mensaje</h2>
+        <form id="contactForm" action="#" method="post" class="form">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" autocomplete="name" required>
+
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@example.com" autocomplete="email" required>
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Cultivo, superficie (ha), localidad..." required></textarea>
+
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
       </div>
-    </section>
 
-    <section class="contact-section">
-      <div class="container contact-grid">
-        
-        <!-- Formulario -->
-        <div class="contact-form">
-          <h2>Envíanos un mensaje</h2>
-          <form action="#" method="post">
-            <label for="name">Nombre completo</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+    <aside class="card">
+    <h2>Datos de contacto</h2>
+    <p><strong>Ubicación:</strong> San Francisco del Mar, Oaxaca</p>
+    <p><strong>Teléfono:</strong> <a href="tel:+5219602383601">+52 1 960 238 3601</a></p>
+    <p><strong>Correo:</strong> <a href="mailto:terrateksolutions71@gmail.com">terrateksolutions71@gmail.com</a></p>
 
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="tucorreo@example.com" required>
+    <!-- Redes sociales -->
+    <div class="social-links footer-social">
+      <a href="https://wa.me/5219602383601" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <img src="assets/img/social/whatsapp-white.svg" alt="WhatsApp">
+      </a>
+      <a href="https://www.facebook.com/share/1QJ1JJ6bkf/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="assets/img/social/facebook-white.svg" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/terrateksolutions71?igsh=dXluZnRrdGkwY2tk" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="assets/img/social/instagram-white.svg" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@TuUsuario" target="_blank" rel="noopener" aria-label="TikTok">
+        <img src="assets/img/social/tiktok-white.svg" alt="TikTok">
+      </a>
+    </div>
 
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
 
-            <button type="submit" class="btn-primary">Enviar mensaje</button>
-          </form>
-        </div>
+    <div class="map">
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.604523876135!2d-94.51479512416362!3d16.339458184406436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85952f03880603e1%3A0x54b07bd8aa5ab8f9!2sAv.%20Benito%20Ju%C3%A1rez%20188%2C%2070146%20San%20Francisco%20del%20Mar%2C%20Oax.!5e0!3m2!1ses-419!2smx!4v1691788800000!5m2!1ses-419!2smx"
+        width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    </aside>
 
-        <!-- Información -->
-        <div class="contact-info">
-          <h2>Datos de contacto</h2>
-          <p><strong>Ubicación:</strong> San Francisco del Mar, Oaxaca, México</p>
-          <p><strong>Teléfono:</strong> <a href="tel:+5219602383601">+52 1 960 238 36 01</a></p>
-          <p><strong>Correo:</strong> <a href="terrateksolutions71@gmail.com">terrateksolutions71@gmail.com</a></p>
-
-          <a href="https://wa.me/5219602383601" target="_blank" class="btn-whatsapp">
-            💬 Enviar mensaje por WhatsApp
-          </a>
-
-          <div class="map">
-            <iframe 
-              src="https://maps.app.goo.gl/DoggEjqHDFYtBhUEA" 
-              width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer role="contentinfo">
+    <div class="container copy">
       <p>&copy; 2025 Terratek Solutions. Todos los derechos reservados.</p>
     </div>
   </footer>

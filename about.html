@@ -2,56 +2,111 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiénes somos - Terratek Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiénes somos — Terratek Solutions</title>
+  <meta name="description" content="Conoce la historia, misión, visión y objetivos de Terratek Solutions. Agricultura de precisión con drones." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav-container">
-        <img src="assets/img/logo.png" alt="Terratek Solutions Logo" class="logo">
-        <button class="menu-toggle" id="menuToggle">☰ Menú</button>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="about.html">Quiénes somos</a>
-            <a href="services.html">Servicios</a>
-            <a href="contact.html">Contacto</a>
-        </nav>
+  <header role="banner" aria-label="Cabecera">
+    <div class="container nav">
+      <a href="index.html" class="brand"><img src="assets/img/logo-fondo.png" alt="Terratek Solutions" class="logo" style="width: 150px; height: auto;" /></a>
+      <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="siteNav">☰</button>
+      <nav id="siteNav" role="navigation" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Quiénes somos</a>
+        <a href="services.html">Servicios</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
     </div>
   </header>
 
+  <!-- Hero simple -->
+  <section class="page-hero">
+    <div class="container center">
+      <h1>Quiénes somos</h1>
+      <p class="muted">Tecnología + territorio + cercanía con el productor</p>
+    </div>
+  </section>
+
   <main>
-    <section class="page-header">
+    <!-- Intro -->
+    <section class="section">
       <div class="container">
-        <h1>Quiénes somos</h1>
-        <p>Comprometidos con el campo y la innovación.</p>
+        <p class="lead center" style="max-width:900px">
+          Terratek Solutions es una empresa en formación ubicada en San Francisco del Mar, Oaxaca,
+          dedicada a servicios agrícolas de precisión con drones y tecnologías emergentes. Impulsamos
+          la modernización del campo en el Istmo, el centro y el sur de México, con soluciones
+          adaptadas a las necesidades reales de los productores.
+        </p>
       </div>
     </section>
 
-    <section class="about-content">
-      <div class="container">
-        <h2>Nuestra historia</h2>
-        <p>Terratek Solutions nace en San Francisco del Mar, Oaxaca, con el objetivo de revolucionar la agricultura en el Istmo mediante el uso de drones agrícolas de última generación. Nuestra experiencia en mecatrónica agrícola y conocimiento del campo nos permite ofrecer soluciones prácticas, accesibles y eficientes para productores de todos los niveles.</p>
+    <!-- Historia + Foto -->
+    <section class="section">
+      <div class="container grid g2 middle">
+        <div>
+          <h2 class="subtitle">Historia y enfoque</h2>
+          <p>
+            Iniciamos con servicios de fumigación y fertilización aérea priorizando mango, maíz, sorgo y papaya.
+            Evaluamos plataformas (incluido DJI Agras T70) para seleccionar el equipo más eficiente en capacidad,
+            operatividad y soporte.
+          </p>
+          <p>
+            A mediano plazo, diversificaremos hacia monitoreo multiespectral (NDVI, estrés hídrico), mapeo topográfico
+            y aplicaciones como siembra aérea y control biológico.
+          </p>
+          <p>
+            Nuestra propuesta combina innovación tecnológica, conocimiento del territorio y cercanía con el productor
+            para lograr una agricultura más rentable, eficiente y sostenible.
+          </p>
+        </div>
+        <div class="media">
+          <img src="assets/img/about-drone.jpg" alt="Operación de dron agrícola en campo" loading="lazy">
+        </div>
+      </div>
+    </section>
 
-        <h2>Misión</h2>
-        <p>Proveer servicios agrícolas de alta precisión mediante tecnología con drones, mejorando la productividad, seguridad y sostenibilidad en las labores del campo.</p>
+    <!-- Misión / Visión -->
+    <section class="section alt">
+      <div class="container grid g2">
+        <article class="card">
+          <h3>🌱 Misión</h3>
+          <p>
+            Brindar soluciones agrícolas innovadoras y sostenibles mediante drones y tecnologías de precisión,
+            adaptadas a las condiciones y necesidades de los productores del centro y sur de México, impulsando
+            la productividad, la rentabilidad y el desarrollo rural.
+          </p>
+        </article>
+        <article class="card">
+          <h3>🚀 Visión</h3>
+          <p>
+            Ser la empresa líder en servicios agrícolas con drones en el sur y centro de México, reconocida por su
+            eficiencia operativa, cercanía con el productor y compromiso con la transformación tecnológica del
+            sector agroalimentario.
+          </p>
+        </article>
+      </div>
+    </section>
 
-        <h2>Visión</h2>
-        <p>Ser la empresa líder en soluciones agrícolas con drones en el sur de México, reconocida por su innovación, compromiso social y responsabilidad ambiental.</p>
-
-        <h2>Valores</h2>
-        <ul>
-          <li>🌿 Innovación tecnológica</li>
-          <li>🌾 Compromiso con el productor</li>
-          <li>🌎 Cuidado del medio ambiente</li>
-          <li>🤝 Honestidad y cercanía</li>
+    <!-- Objetivos -->
+    <section class="section">
+      <div class="container center">
+        <h2 class="title">Objetivos estratégicos</h2>
+        <ul class="checks" style="max-width:900px;margin:12px auto 0">
+          <li>Operar en zonas clave del Istmo, centro y sur en el primer año.</li>
+          <li>Seleccionar y adquirir el dron más adecuado por rendimiento y mantenimiento.</li>
+          <li>Capacitar a técnicos locales en drones y agricultura de precisión.</li>
+          <li>Alianzas con productores, cooperativas y asociaciones rurales.</li>
+          <li>Expandir servicios a monitoreo, mapeo y siembra aérea ≤ 2 años.</li>
+          <li>Estrategia comercial escalable: presencia en campo + posicionamiento digital.</li>
         </ul>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer role="contentinfo">
+    <div class="container copy">
       <p>&copy; 2025 Terratek Solutions. Todos los derechos reservados.</p>
     </div>
   </footer>

@@ -2,101 +2,176 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terratek Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terratek Solutions — Drones agrícolas en el Istmo de Oaxaca</title>
+  <meta name="description" content="Fumigación y fertilización de precisión con drones. Servicios profesionales en el Istmo, centro y sur de México." />
+  <meta name="theme-color" content="#4E7933" />
+  <meta property="og:title" content="Terratek Solutions — Drones agrícolas" />
+  <meta property="og:description" content="Aplicaciones precisas, rápidas y seguras con drones." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og-cover.jpg" />
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/img/favicon-192.png" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav-container">
-        <img src="assets/img/logo.png" alt="Terratek Solutions Logo" class="logo">
-        <button class="menu-toggle" id="menuToggle">☰ Menú</button>
-        <nav>
-            <a href="index.html" class="active">Inicio</a>
-            <a href="about.html">Quiénes somos</a>
-            <a href="services.html">Servicios</a>
-            <a href="contact.html">Contacto</a>
-        </nav>
+  <header role="banner" aria-label="Cabecera">
+    <div class="container nav">
+    <a href="index.html" class="brand" aria-label="Terratek Solutions">
+      <img src="assets/img/logo-fondo.png" alt="Terratek Solutions" class="logo" style="width: 150px; height: auto;" />
+    </a>
+      <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="siteNav">☰</button>
+      <nav id="siteNav" role="navigation" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Quiénes somos</a>
+        <a href="services.html">Servicios</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <section class="hero hero-split">
-    <div class="container grid hero-grid">
-        <div class="hero-copy">
-        <h1>Transformando el campo con tecnología</h1>
-        <p>Fumigación y fertilización de precisión con drones DJI Agras T70P en el Istmo de Oaxaca.</p>
-        <div class="hero-ctas">
-            <a href="contact.html" class="btn-primary">Solicitar cotización</a>
-            <a href="services.html" class="btn-secondary">Ver servicios</a>
+  <!-- Hero con imagen (cambia hero.jpg si quieres) -->
+  <section class="hero hero-img">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Agricultura de precisión, resultados medibles</h1>
+        <p class="lead">
+          Fumigación y fertilización aérea con drones, cobertura uniforme y ahorro de insumos.
+          Operamos en el Istmo y expandiendo al centro y sur de México.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="contact.html">Solicitar cotización</a>
+          <a class="btn btn-outline" href="services.html">Ver servicios</a>
         </div>
-
-        <ul class="hero-bullets">
-            <li>✅ Menor deriva y desperdicio</li>
-            <li>✅ Cobertura uniforme y rápida</li>
-            <li>✅ Seguridad para tu personal</li>
+        <ul class="checks">
+          <li>Menor deriva y desperdicio</li>
+          <li>Hasta x4 más rápido</li>
+          <li>Seguridad para tu personal</li>
         </ul>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-circle">
+          <img src="assets/img/logo.png" alt="" />
         </div>
-
-        <div class="hero-brand">
-        <div class="brand-card">
-            <img src="assets/img/logo.png" alt="Terratek Solutions" />
-        </div>
-        <span class="brand-caption">Terratek Solutions</span>
-        </div>
+        <small>Terratek Solutions</small>
+      </div>
     </div>
   </section>
 
   <!-- Métricas -->
-    <section class="stats">
-    <div class="container stats-grid">
-        <div class="stat">
-        <div class="stat-num">+500</div>
-        <div class="stat-label">ha atendidas</div>
-        </div>
-        <div class="stat">
-        <div class="stat-num">-30%</div>
-        <div class="stat-label">insumos</div>
-        </div>
-        <div class="stat">
-        <div class="stat-num">x4</div>
-        <div class="stat-label">más rápido</div>
-        </div>
-        <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">seguro</div>
-        </div>
-    </div>
-    </section>
-
-<!-- Accesos rápidos -->
-    <section class="section quick-links">
-    <div class="container grid grid-3">
-        <a class="card link-card" href="services.html">
-        <h3>Servicios</h3>
-        <p>Fumigación, fertilización y aplicaciones especiales con dron.</p>
-        </a>
-        <a class="card link-card" href="about.html">
-        <h3>Cobertura</h3>
-        <p>Istmo de Oaxaca y zonas cercanas. Agenda una visita.</p>
-        </a>
-        <a class="card link-card" href="contact.html">
-        <h3>Cotización</h3>
-        <p>Cuéntanos tu cultivo y superficie. Respondemos hoy.</p>
-        </a>
-    </div>
-    </section>
-
-
-
-  <section class="intro">
-    <div class="container">
-      <h2>¿Por qué elegir Terratek?</h2>
-      <p>Ofrecemos soluciones modernas y eficientes para el cuidado de tus cultivos, reduciendo costos, tiempo y riesgos para los trabajadores.</p>
+  <section class="strip">
+    <div class="container stats">
+      <div><strong>+500</strong><span>hectáreas atendidas</span></div>
+      <div><strong>-30%</strong><span>en insumos</span></div>
+      <div><strong>x4</strong><span>más rápido</span></div>
+      <div><strong>100%</strong><span>operación segura</span></div>
     </div>
   </section>
 
-  <footer>
+  <!-- Accesos rápidos -->
+  <section class="section">
     <div class="container">
+      <h2 class="title">¿Qué necesitas hoy?</h2>
+      <div class="grid g3 cards">
+        <a class="card link" href="services.html">
+          <h3>Servicios</h3>
+          <p>Fumigación, fertilización y aplicaciones especiales con dron.</p>
+        </a>
+        <a class="card link" href="about.html">
+          <h3>Cobertura</h3>
+          <p>Istmo de Oaxaca y expansión al centro y sur.</p>
+        </a>
+        <a class="card link" href="contact.html">
+          <h3>Cotización</h3>
+          <p>Cuéntanos cultivo y superficie. Respondemos hoy.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectores -->
+  <section class="section alt">
+    <div class="container">
+      <h2 class="title">Sectores y cultivos</h2>
+      <p class="lead center">Mango, maíz, sorgo, papaya y caña (expansión continua).</p>
+      <div class="grid g4 pills">
+        <span class="pill">🥭 Mango</span>
+        <span class="pill">🌽 Maíz</span>
+        <span class="pill">🌾 Sorgo</span>
+        <span class="pill">🍃 Papaya</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Lo que dicen</h2>
+      <div class="grid g3 testimonials">
+        <article class="testi">
+          <p>“Cobertura pareja y menos desperdicio que con bomba.”</p>
+          <small>Productor de mango • Ixhuatán</small>
+        </article>
+        <article class="testi">
+          <p>“Entraron a zonas encharcadas sin riesgo. Muy recomendables.”</p>
+          <small>Cooperativa • Juchitán</small>
+        </article>
+        <article class="testi">
+          <p>“Ahorro de insumos y tiempos. La planeación con rutas ayudó mucho.”</p>
+          <small>Productor de maíz • Zanatepec</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container center">
+      <h2>¿Listo para la próxima aplicación?</h2>
+      <p class="muted">Te asesoramos sin costo. Agenda hoy mismo.</p>
+      <a class="btn btn-primary" href="contact.html">Contactar ahora</a>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container foot">
+      <div>
+        <strong>Terratek Solutions</strong>
+        <p class="muted">Drones agrícolas para una producción rentable y segura.</p>
+      </div>
+      <div>
+        <strong>Enlaces</strong>
+        <ul>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="about.html">Quiénes somos</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Contacto</strong>
+        <ul>
+          <li><a href="tel:+5219602383601">+52 1 960 238 3601</a></li>
+          <li><a href="mailto:terrateksolutions71@gmail.com">terrateksolutions71@gmail.com</a></li>
+          <li><a href="https://wa.me/5219602383601" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+            <!-- Redes sociales -->
+        <div class="social-links footer-social">
+          <a href="https://wa.me/5219602383601" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <img src="assets/img/social/whatsapp-white.svg" alt="WhatsApp">
+          </a>
+          <a href="https://www.facebook.com/share/1QJ1JJ6bkf/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="assets/img/social/facebook-white.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/terrateksolutions71?igsh=dXluZnRrdGkwY2tk" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="assets/img/social/instagram-white.svg" alt="Instagram">
+          </a>
+          <a href="https://www.tiktok.com/@TuUsuario" target="_blank" rel="noopener" aria-label="TikTok">
+            <img src="assets/img/social/tiktok-white.svg" alt="TikTok">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container copy">
       <p>&copy; 2025 Terratek Solutions. Todos los derechos reservados.</p>
     </div>
   </footer>
