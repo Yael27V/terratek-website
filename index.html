@@ -18,7 +18,10 @@
   <header role="banner" aria-label="Cabecera">
     <div class="container nav">
     <a href="index.html" class="brand" aria-label="Terratek Solutions">
-      <img src="assets/img/logo-fondo.png" alt="Terratek Solutions" class="logo" style="width: 150px; height: auto;" />
+      <div class="logo-container">
+        <img src="assets/img/logo-fondo.png" alt="Terratek Solutions Logo" class="logo-text" />
+        <img src="assets/img/logo_terratek_circulo.png" alt="Terratek Solutions Logo Circular" class="logo-circle" />
+      </div>
     </a>
       <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="siteNav">☰</button>
       <nav id="siteNav" role="navigation" aria-label="Principal">
@@ -30,31 +33,68 @@
     </div>
   </header>
 
-  <!-- Hero con imagen (cambia hero.jpg si quieres) -->
-  <section class="hero hero-img">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1>Agricultura de precisión, resultados medibles</h1>
-        <p class="lead">
-          Fumigación y fertilización aérea con drones, cobertura uniforme y ahorro de insumos.
-          Operamos en el Istmo y expandiendo al centro y sur de México.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="contact.html">Solicitar cotización</a>
-          <a class="btn btn-outline" href="services.html">Ver servicios</a>
-        </div>
-        <ul class="checks">
-          <li>Menor deriva y desperdicio</li>
-          <li>Hasta 4 veces más rápido</li>
-          <li>Seguridad para tu personal</li>
-        </ul>
+  <!-- Hero con videos -->
+  <section class="video-banner home-banner">
+    <div class="video-slider">
+      <div class="video-slide active">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-fumigacion.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="hero-badge">
-        <div class="badge-circle">
-          <img src="assets/img/logo.png" alt="" />
-        </div>
-        <small>Terratek Solutions</small>
+      <div class="video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-fertilizacion.mp4" type="video/mp4">
+        </video>
       </div>
+      <div class="video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-monitoreo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-nocturno.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-boquillas-pulverizando.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-pendiente.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/drone-pulverizando-aereo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="slider-controls">
+        <button class="prev-slide" aria-label="Anterior video">←</button>
+        <div class="slide-indicators"></div>
+        <button class="next-slide" aria-label="Siguiente video">→</button>
+      </div>
+    </div>
+    <div class="banner-overlay">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Agricultura de precisión, resultados medibles</h1>
+          <p class="hero-lead">
+            Fumigación y fertilización aérea con drones, cobertura uniforme y ahorro de insumos.
+            Operamos en el Istmo y expandiendo al centro y sur de México.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="contact.html">Solicitar cotización</a>
+            <a class="btn btn-outline" href="services.html">Ver servicios</a>
+          </div>
+          <ul class="checks hero-checks">
+            <li>Menor deriva y desperdicio</li>
+            <li>Hasta 4 veces más rápido</li>
+            <li>Seguridad para tu personal</li>
+          </ul>
+        </div>
     </div>
   </section>
 
@@ -69,60 +109,32 @@
   </section>
 
   <!-- Accesos rápidos -->
-  <section class="section">
-    <div class="container">
-      <h2 class="title">¿Qué necesitas hoy?</h2>
-      <div class="grid g3 cards">
-        <a class="card link" href="services.html">
-          <h3>Servicios</h3>
-          <p>Fumigación, fertilización y aplicaciones especiales con dron.</p>
-        </a>
-        <a class="card link" href="about.html">
-          <h3>Cobertura</h3>
-          <p>Istmo de Oaxaca y expansión al centro y sur.</p>
-        </a>
-        <a class="card link" href="contact.html">
-          <h3>Cotización</h3>
-          <p>Cuéntanos cultivo y superficie. Respondemos hoy.</p>
-        </a>
-      </div>
-    </div>
-  </section>
+<section class="section">
+  <div class="container">
+    <h2 class="title">¿Qué necesitas hoy?</h2>
+    <div class="grid g3 cards">
 
-  <!-- Sectores -->
-  <section class="section alt">
-    <div class="container">
-      <h2 class="title">Sectores y cultivos</h2>
-      <p class="lead center">Mango, maíz, sorgo, papaya y caña (expansión continua).</p>
-      <div class="grid g4 pills">
-        <span class="pill">🥭 Mango</span>
-        <span class="pill">🌽 Maíz</span>
-        <span class="pill">🌾 Sorgo</span>
-        <span class="pill">🍃 Papaya</span>
-      </div>
-    </div>
-  </section>
+      <a class="card link" href="services.html">
+        <div class="card-icon">🌱</div>
+        <h3>Servicios principales</h3>
+        <p>Fumigación, fertilización y aplicaciones especiales con drones de precisión.</p>
+      </a>
 
-  <!-- Testimonios -->
-  <section class="section">
-    <div class="container">
-      <h2 class="title">Lo que dicen</h2>
-      <div class="grid g3 testimonials">
-        <article class="testi">
-          <p>“Cobertura pareja y menos desperdicio que con bomba.”</p>
-          <small>Productor de mango • Ixhuatán</small>
-        </article>
-        <article class="testi">
-          <p>“Entraron a zonas encharcadas sin riesgo. Muy recomendables.”</p>
-          <small>Cooperativa • Juchitán</small>
-        </article>
-        <article class="testi">
-          <p>“Ahorro de insumos y tiempos. La planeación con rutas ayudó mucho.”</p>
-          <small>Productor de maíz • Zanatepec</small>
-        </article>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Beneficios inmediatos</h3>
+        <p>Ahorro de insumos, menor compactación en tus parcelas y cobertura uniforme.</p>
       </div>
+
+      <a class="card link" href="contact.html">
+        <div class="card-icon">💬</div>
+        <h3>Cotización rápida</h3>
+        <p>Cuéntanos tu cultivo y superficie. Te respondemos el mismo día.</p>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CTA -->
   <section class="cta">
@@ -165,7 +177,7 @@
           <a href="https://www.instagram.com/terrateksolutions71?igsh=dXluZnRrdGkwY2tk" target="_blank" rel="noopener" aria-label="Instagram">
             <img src="assets/img/social/instagram-white.svg" alt="Instagram">
           </a>
-          <a href="https://www.tiktok.com/@terratek.solution?_t=ZS-8yvvD0QKHnp&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
+          <a href="https://www.tiktok.com/@terratek.solutions?_t=ZS-908dqCarCYH&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
             <img src="assets/img/social/tiktok-white.svg" alt="TikTok">
           </a>
         </div>
@@ -177,5 +189,86 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.video-slide');
+      const prevButton = document.querySelector('.prev-slide');
+      const nextButton = document.querySelector('.next-slide');
+      const indicators = document.querySelector('.slide-indicators');
+      
+      let currentSlide = 0;
+      const slideCount = slides.length;
+
+      // Preload videos
+      slides.forEach(slide => {
+        const video = slide.querySelector('video');
+        video.load();
+      });
+
+      // Create indicators
+      slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('indicator');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        indicators.appendChild(dot);
+      });
+
+      // Update indicators
+      function updateIndicators() {
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentSlide);
+        });
+      }
+
+      // Go to specific slide
+      function goToSlide(n) {
+        // Pause current video
+        const currentVideo = slides[currentSlide].querySelector('video');
+        currentVideo.pause();
+        
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (n + slideCount) % slideCount;
+        slides[currentSlide].classList.add('active');
+        
+        // Play new video
+        const nextVideo = slides[currentSlide].querySelector('video');
+        nextVideo.currentTime = 0;
+        nextVideo.play();
+        
+        updateIndicators();
+      }
+
+      // Next slide
+      function nextSlide() {
+        goToSlide(currentSlide + 1);
+      }
+
+      // Previous slide
+      function prevSlide() {
+        goToSlide(currentSlide - 1);
+      }
+
+      // Event listeners
+      prevButton.addEventListener('click', prevSlide);
+      nextButton.addEventListener('click', nextSlide);
+
+      // Auto advance slides with longer interval for videos
+      let slideInterval = setInterval(nextSlide, 12000);
+
+      // Pause on hover
+      const slider = document.querySelector('.video-slider');
+      slider.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+
+      slider.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 12000);
+      });
+
+      // Start first video
+      slides[0].querySelector('video').play();
+    });
+  </script>
 </body>
 </html>

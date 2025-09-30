@@ -10,7 +10,12 @@
 <body>
   <header role="banner" aria-label="Cabecera">
     <div class="container nav">
-      <a href="index.html" class="brand"><img src="assets/img/logo-fondo.png" alt="Terratek Solutions" class="logo" style="width: 150px; height: auto;" /></a>
+      <a href="index.html" class="brand" aria-label="Terratek Solutions">
+        <div class="logo-container">
+          <img src="assets/img/logo-fondo.png" alt="Terratek Solutions Logo" class="logo-text" />
+          <img src="assets/img/logo_terratek_circulo.png" alt="Terratek Solutions Logo Circular" class="logo-circle" />
+        </div>
+      </a>
       <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="siteNav">☰</button>
       <nav id="siteNav" role="navigation" aria-label="Principal">
         <a href="index.html">Inicio</a>
@@ -21,86 +26,176 @@
     </div>
   </header>
 
-  <!-- Hero simple -->
-  <section class="page-hero">
-    <div class="container center">
-      <h1>Quiénes somos</h1>
-      <p class="muted">Tecnología + territorio + cercanía con el productor</p>
+  <!-- Banner principal moderno -->
+  <section class="hero-banner about-hero">
+    <div class="banner-pattern"></div>
+    <div class="banner-content">
+      <div class="container">
+        <div class="title-grid">
+          <div class="title-wrapper">
+            <div class="title-animation">
+              <span class="title-accent">Historia</span>
+              <h1 class="banner-title">y Enfoque<span class="dot">.</span></h1>
+            </div>
+            <p class="banner-subtitle">Innovando en el campo mexicano desde el Istmo de Tehuantepec</p>
+            <div class="banner-line"></div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </section>
 
   <main>
-    <!-- Intro -->
-    <section class="section">
+    <!-- Historia -->
+    <section class="section story-section">
       <div class="container">
-        <p class="lead center" style="max-width:900px">
-          Terratek Solutions es una empresa en formación ubicada en San Francisco del Mar, Oaxaca,
-          dedicada a servicios agrícolas de precisión con drones y tecnologías emergentes. Impulsamos
-          la modernización del campo en el Istmo, el centro y el sur de México, con soluciones
-          adaptadas a las necesidades reales de los productores.
-        </p>
-      </div>
-    </section>
-
-    <!-- Historia + Foto -->
-    <section class="section">
-      <div class="container grid g2 middle">
-        <div>
-          <h2 class="subtitle">Historia y enfoque</h2>
-          <p>
-            Iniciamos con servicios de fumigación y fertilización aérea priorizando mango, maíz, sorgo y papaya.
-            Evaluamos plataformas (incluido DJI Agras T70) para seleccionar el equipo más eficiente en capacidad,
-            operatividad y soporte.
-          </p>
-          <p>
-            A mediano plazo, diversificaremos hacia monitoreo multiespectral (NDVI, estrés hídrico), mapeo topográfico
-            y aplicaciones como siembra aérea y control biológico.
-          </p>
-          <p>
-            Nuestra propuesta combina innovación tecnológica, conocimiento del territorio y cercanía con el productor
-            para lograr una agricultura más rentable, eficiente y sostenible.
-          </p>
-        </div>
-        <div class="media">
-          <img src="assets/img/about-drone.jpg" alt="Operación de dron agrícola en campo" loading="lazy">
+        <div class="feature-card main-story">
+          <div class="card-content">
+            <div class="icon-circle">
+              <span class="icon">🌱</span>
+            </div>
+            <h2 class="story-title">Nuestra Historia</h2>
+            <p class="story-text">
+              Terratek Solutions nace en el Istmo de Tehuantepec, Oaxaca,
+              con el objetivo de transformar la agricultura mediante el uso
+              de tecnología de precisión. La empresa surge como
+              respuesta a la necesidad de los productores de contar con
+              soluciones más eficientes, económicas y sustentables.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Misión / Visión -->
-    <section class="section alt">
-      <div class="container grid g2">
-        <article class="card">
-          <h3>🌱 Misión</h3>
-          <p>
-            Brindar soluciones agrícolas innovadoras y sostenibles mediante drones y tecnologías de precisión,
-            adaptadas a las condiciones y necesidades de los productores del centro y sur de México, impulsando
-            la productividad, la rentabilidad y el desarrollo rural.
+    <!-- Equipo -->
+    <section class="section team-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="icon-badge">
+            <span class="icon">👥</span>
+          </div>
+          <h2 class="section-title">Nuestro Equipo Especializado</h2>
+          <p class="section-subtitle">
+            Tres egresados de la Universidad Autónoma Chapingo unidos por la innovación agrícola
           </p>
-        </article>
-        <article class="card">
-          <h3>🚀 Visión</h3>
-          <p>
-            Ser la empresa líder en servicios agrícolas con drones en el sur y centro de México, reconocida por su
-            eficiencia operativa, cercanía con el productor y compromiso con la transformación tecnológica del
-            sector agroalimentario.
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="card-header">
+              <span class="role-icon">🤖</span>
+              <h3>Ingeniero Mecatrónico Agrícola</h3>
+            </div>
+            <p>Especialista en automatización y tecnología aplicada a la agricultura</p>
+          </div>
+
+          <div class="team-card">
+            <div class="card-header">
+              <span class="role-icon">🏭</span>
+              <h3>Ingeniero Agroindustrial</h3>
+            </div>
+            <p>Enfocado en la eficiencia productiva y transformación sustentable</p>
+          </div>
+
+          <div class="team-card">
+            <div class="card-header">
+              <span class="role-icon">🌾</span>
+              <h3>Ingeniero Agrónomo Fitotecnista</h3>
+            </div>
+            <p>Experto en manejo de cultivos y optimización de la producción</p>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-content">
+            <span class="vision-icon">🎯</span>
+            <h3>Nuestro Enfoque</h3>
+            <p>
+              Nos dirigimos a productores de todas las escalas, adaptando
+              soluciones específicas para fortalecer la competitividad
+              agrícola de la región.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!-- Misión / Visión / Valores -->
+    <section class="section team-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="icon-badge">
+            <span class="icon">💫</span>
+          </div>
+          <h2 class="section-title">Nuestros Pilares</h2>
+          <p class="section-subtitle">
+            Guiando nuestro camino hacia la excelencia en agricultura tecnológica
           </p>
-        </article>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="card-header">
+              <span class="role-icon">🌱</span>
+              <h3>Misión</h3>
+            </div>
+            <p>
+              Brindar servicios de aplicación agrícola con drones de
+              precisión, ofreciendo a los productores soluciones accesibles,
+              eficientes y sustentables que mejoren la productividad y
+              reduzcan los costos de operación en el campo.
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="card-header">
+              <span class="role-icon">🚀</span>
+              <h3>Visión</h3>
+            </div>
+            <p>
+              Ser la empresa líder en tecnología agrícola y asesoramiento
+              agronómico en el sur y centro de México, reconocida por
+              impulsar la innovación en el campo, integrar soluciones
+              tecnológicas avanzadas y brindar acompañamiento
+              especializado que permita a los productores alcanzar una
+              agricultura más moderna, rentable y sustentable.
+            </p>
+          </div>
+
+          <div class="team-card">
+            <div class="card-header">
+              <span class="role-icon">⭐</span>
+              <h3>Valores</h3>
+            </div>
+            <ul class="checks" style="margin-top:10px">
+              <li>Innovación: Incorporamos tecnología de vanguardia en cada servicio</li>
+              <li>Compromiso: Trabajamos con responsabilidad hacia nuestros clientes y el medio ambiente</li>
+              <li>Eficiencia: Optimizamos recursos para lograr los mejores resultados</li>
+              <li>Confianza: Construimos relaciones sólidas y duraderas con los productores</li>
+              <li>Sustentabilidad: Promovemos prácticas agrícolas responsables con el entorno</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Objetivos -->
-    <section class="section">
-      <div class="container center">
-        <h2 class="title">Objetivos estratégicos</h2>
-        <ul class="checks" style="max-width:900px;margin:12px auto 0">
-          <li>Operar en zonas clave del Istmo, centro y sur en el primer año.</li>
-          <li>Seleccionar y adquirir el dron más adecuado por rendimiento y mantenimiento.</li>
-          <li>Capacitar a técnicos locales en drones y agricultura de precisión.</li>
-          <li>Alianzas con productores, cooperativas y asociaciones rurales.</li>
-          <li>Expandir servicios a monitoreo, mapeo y siembra aérea ≤ 2 años.</li>
-          <li>Estrategia comercial escalable: presencia en campo + posicionamiento digital.</li>
-        </ul>
+    <!-- Objetivos Estratégicos -->
+    <section class="section story-section">
+      <div class="container">
+        <div class="feature-card">
+          <div class="card-content">
+            <div class="icon-circle">
+              <span class="icon">🎯</span>
+            </div>
+            <h2 class="story-title">Objetivos Estratégicos</h2>
+            <ul class="checks" style="max-width:800px;margin:20px auto 0">
+              <li>Establecer operaciones en el centro y sur de México durante el primer año, iniciando en regiones productoras de mango, maíz, sorgo, papaya, caña y cítricos</li>
+              <li>Generar alianzas con productores, cooperativas y asociaciones rurales, para construir una red de trabajo sólida y de confianza</li>
+              <li>Expandir la gama de servicios hacia monitoreo aéreo, mapeo topográfico y siembra aérea</li>
+              <li>Desarrollar una estrategia comercial escalable, combinando presencia física en campo con posicionamiento digital, para atender eficazmente zonas rurales y semiurbanas</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
