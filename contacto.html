@@ -68,62 +68,69 @@
           <p class="form-subtitle">Cuéntanos sobre tu proyecto y te responderemos pronto</p>
         </div>
 
-        <form id="contactForm" class="form" accept-charset="UTF-8">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="nombre">Nombre completo</label>
-              <div class="input-icon">
-                <span class="field-icon">👤</span>
-                <input type="text" id="nombre" name="nombre" value="" placeholder="Ej. Juan Pérez" autocomplete="name" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <div class="input-icon">
-                <span class="field-icon">📧</span>
-                <input type="email" id="email" name="email" value="" placeholder="tucorreo@example.com" autocomplete="email" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="telefono">Teléfono (opcional)</label>
-              <div class="input-icon">
-                <span class="field-icon">📱</span>
-                <input type="tel" id="telefono" name="telefono" value="" placeholder="Ej. +52 1 234 567 8900" autocomplete="tel">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="asunto">Asunto</label>
-              <div class="input-icon">
-                <span class="field-icon">📝</span>
-                <select id="asunto" name="asunto" required>
-                  <option value="">Selecciona un asunto...</option>
-                  <option value="Solicitar cotización">Solicitar cotización</option>
-                  <option value="Programar servicio">Programar servicio</option>
-                  <option value="Información general">Información general</option>
-                  <option value="Otro">Otro</option>
-                </select>
-              </div>
-            </div>
+        <div id="form-messages"></div>
+        
+        <form id="contact-form" action="https://formspree.io/f/mgvnkzgv" method="POST">
+          <!-- Campo oculto para evitar spam -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://terrateksolutions.com.mx/contacto.html#form-success">
+          
+          <div class="form-group">
+            <label for="name">Nombre completo *</label>
+            <input type="text" id="name" name="name" required>
           </div>
-
-          <div class="form-group full-width">
-            <label for="mensaje">Mensaje</label>
-            <div class="input-icon">
-              <span class="field-icon">💬</span>
-              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cultivo, superficie (ha), localidad..." required></textarea>
-            </div>
+          
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email" required>
           </div>
-
-          <button type="submit" class="btn btn-primary submit-btn" id="enviarBtn">
-            <span class="btn-icon">✉️</span>
-            Enviar mensaje
+          
+          <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Servicio de interés</label>
+            <select id="service" name="service">
+              <option value="">Selecciona un servicio</option>
+              <option value="fumigacion">Fumigación con Drones</option>
+              <option value="fertilizacion">Fertilización de Precisión</option>
+              <option value="monitoreo">Monitoreo de Cultivos</option>
+              <option value="consultoria">Consultoría Agrícola</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="hectares">Hectáreas aproximadas</label>
+            <input type="number" id="hectares" name="hectares" min="1" placeholder="Ej: 50">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mensaje *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos sobre tu proyecto agrícola..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary" id="submit-btn">
+            <span id="btn-text">Enviar Mensaje</span>
+            <span id="btn-loading" style="display: none;">Enviando...</span>
           </button>
         </form>
         
-        <div id="resultado" style="display: none; margin-top: 20px; padding: 20px; border-radius: 10px; text-align: center; font-weight: bold;"></div>
+        <div class="contact-methods-alt" style="margin-top: 30px; text-align: center; padding: 20px; background: var(--bg); border-radius: var(--radius);">
+          <p style="margin-bottom: 15px; color: var(--green-dark);">O contáctanos directamente:</p>
+          <div class="contact-links" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://wa.me/5219602383601?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20de%20drones%20agrícolas" target="_blank" class="btn btn-outline" style="text-decoration: none;">
+              <img src="assets/img/social/whatsapp-white.svg" alt="WhatsApp" style="width: 16px; height: 16px; margin-right: 5px;"> WhatsApp
+            </a>
+            <a href="mailto:terrateksolutions71@gmail.com" class="btn btn-outline" style="text-decoration: none;">
+              ✉ Email
+            </a>
+            <a href="tel:+5219602383601" class="btn btn-outline" style="text-decoration: none;">
+              📞 Teléfono
+            </a>
+          </div>
+        </div>
       </div>
 
       <aside class="contact-info-card">
@@ -202,86 +209,136 @@
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contactForm');
-      const resultado = document.getElementById('resultado');
-      const enviarBtn = document.getElementById('enviarBtn');
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnLoading = document.getElementById('btn-loading');
+      const messagesDiv = document.getElementById('form-messages');
       
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Obtener valores
-        const nombre = document.getElementById('nombre').value.trim();
+        // Validar campos requeridos
+        const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
-        const telefono = document.getElementById('telefono').value.trim();
-        const asunto = document.getElementById('asunto').value;
-        const mensaje = document.getElementById('mensaje').value.trim();
+        const message = document.getElementById('message').value.trim();
         
-        // Validar
-        if (!nombre || !email || !asunto || !mensaje) {
-          mostrarResultado('Por favor completa todos los campos obligatorios.', 'error');
+        if (!name || !email || !message) {
+          showMessage('Por favor, completa todos los campos obligatorios.', 'error');
           return;
         }
         
-        // Cambiar botón
-        enviarBtn.innerHTML = '<span class="btn-icon">⏳</span>Enviando...';
-        enviarBtn.disabled = true;
+        // Validar email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showMessage('Por favor, ingresa un email válido.', 'error');
+          return;
+        }
         
-        // Usar mailto como método más confiable (sin ventanas emergentes)
-        const emailBody = `
-Nuevo contacto desde Terratek Solutions
-
-Nombre: ${nombre}
-Email: ${email}
-Teléfono: ${telefono}
-Asunto: ${asunto}
-
-Mensaje:
-${mensaje}
-
----
-Enviado desde: ${window.location.href}
-Fecha: ${new Date().toLocaleString('es-MX')}
-        `.trim();
+        // Mostrar estado de carga
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
         
-        const subject = `Contacto Terratek: ${asunto}`;
-        const mailtoLink = `mailto:terrateksolutions71@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+        // Preparar datos del formulario
+        const formData = new FormData(form);
         
-        // Mostrar mensaje de éxito
-        mostrarResultado('¡Perfecto! Se abrirá tu cliente de email para enviar el mensaje.', 'success');
+        // Agregar campos adicionales para Formspree
+        formData.append('_replyto', email);
+        formData.append('_subject', `Nuevo contacto de ${name} - Terratek Solutions`);
         
-        // Abrir cliente de email después de un segundo
-        setTimeout(() => {
-          window.open(mailtoLink, '_blank');
-          form.reset();
+        console.log('Sending form data:', Object.fromEntries(formData));
+        
+        // Enviar con fetch para evitar la ventana emergente
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          console.log('Response status:', response.status);
+          console.log('Response ok:', response.ok);
           
-          // Mostrar opción de regresar
-          mostrarResultado('Email preparado. Si no se abrió automáticamente, <a href="' + mailtoLink + '" style="color: #155724; text-decoration: underline;">haz clic aquí</a>. Te redirigiremos en unos segundos...', 'success');
+          if (response.ok) {
+            showMessage('¡Mensaje enviado exitosamente! Nos pondremos en contacto contigo pronto.', 'success');
+            form.reset();
+            return;
+          }
           
-          // Redirigir después de 5 segundos
+          // Intentar obtener más información del error
+          return response.json().then(data => {
+            console.log('Error data:', data);
+            if (data.errors && Array.isArray(data.errors)) {
+              throw new Error(data.errors.map(error => error.message).join(', '));
+            } else if (data.error) {
+              throw new Error(data.error);
+            } else {
+              throw new Error(`Error ${response.status}: ${response.statusText}`);
+            }
+          }).catch(jsonError => {
+            // Si no se puede parsear el JSON, usar el status de la respuesta
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+          });
+        })
+        .catch(error => {
+          console.error('Fetch error:', error);
+          
+          // Mostrar diferentes mensajes según el tipo de error
+          let errorMessage = 'Hubo un problema al enviar tu mensaje. ';
+          
+          if (error.message.includes('NetworkError') || error.message.includes('Failed to fetch')) {
+            errorMessage += 'Verifica tu conexión a internet e intenta de nuevo.';
+          } else if (error.message.includes('400')) {
+            errorMessage += 'Los datos del formulario no son válidos. Verifica la información e intenta de nuevo.';
+          } else if (error.message.includes('429')) {
+            errorMessage += 'Has enviado muchos mensajes. Espera un momento antes de intentar de nuevo.';
+          } else if (error.message.includes('500')) {
+            errorMessage += 'Error del servidor. Intenta de nuevo en unos minutos.';
+          } else {
+            errorMessage += 'Por favor, intenta de nuevo o contáctanos directamente por WhatsApp.';
+          }
+          
+          showMessage(errorMessage, 'error');
+          
+          // Ofrecer alternativa de WhatsApp con los datos del formulario
           setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 5000);
-        }, 1000);
+            const confirmWhatsApp = confirm('¿Te gustaría enviar tu mensaje por WhatsApp en su lugar?');
+            if (confirmWhatsApp) {
+              sendViaWhatsApp(name, email, message);
+            }
+          }, 3000);
+        })
+        .finally(() => {
+          // Restaurar botón
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+        });
       });
       
-      function mostrarResultado(mensaje, tipo) {
-        resultado.innerHTML = mensaje;
-        resultado.style.display = 'block';
-        resultado.style.backgroundColor = tipo === 'success' ? '#d4edda' : '#f8d7da';
-        resultado.style.color = tipo === 'success' ? '#155724' : '#721c24';
-        resultado.style.border = '1px solid ' + (tipo === 'success' ? '#c3e6cb' : '#f5c6cb');
-        resultado.style.borderRadius = '8px';
-        resultado.style.fontSize = '16px';
+      function showMessage(message, type) {
+        messagesDiv.innerHTML = `<div class="alert alert-${type}" style="padding: 15px; margin-bottom: 20px; border-radius: 5px; ${type === 'success' ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'}">${message}</div>`;
+        messagesDiv.scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      function sendViaWhatsApp(name, email, message) {
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const hectares = document.getElementById('hectares').value;
         
-        // Restaurar botón si es error
-        if (tipo === 'error') {
-          enviarBtn.innerHTML = '<span class="btn-icon">✉️</span>Enviar mensaje';
-          enviarBtn.disabled = false;
-        }
+        let whatsappMessage = `Hola, soy ${name} y me interesa contactar con Terratek Solutions.%0A%0A`;
+        whatsappMessage += `📧 Email: ${email}%0A`;
+        if (phone) whatsappMessage += `📞 Teléfono: ${phone}%0A`;
+        if (service) whatsappMessage += `🚁 Servicio de interés: ${service}%0A`;
+        if (hectares) whatsappMessage += `🌾 Hectáreas: ${hectares}%0A`;
+        whatsappMessage += `%0A💬 Mensaje:%0A${message}`;
+        
+        const whatsappUrl = `https://wa.me/5219602383601?text=${whatsappMessage}`;
+        window.open(whatsappUrl, '_blank');
       }
     });
   </script>
