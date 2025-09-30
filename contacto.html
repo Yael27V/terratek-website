@@ -68,13 +68,13 @@
           <p class="form-subtitle">Cuéntanos sobre tu proyecto y te responderemos pronto</p>
         </div>
 
-        <form id="contactForm" action="https://formspree.io/f/mgvnkzgv" method="POST" class="form">
+        <form id="contactForm" class="form" accept-charset="UTF-8">
           <div class="form-grid">
             <div class="form-group">
-              <label for="name">Nombre completo</label>
+              <label for="nombre">Nombre completo</label>
               <div class="input-icon">
                 <span class="field-icon">👤</span>
-                <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" autocomplete="name" required>
+                <input type="text" id="nombre" name="nombre" value="" placeholder="Ej. Juan Pérez" autocomplete="name" required>
               </div>
             </div>
 
@@ -82,52 +82,48 @@
               <label for="email">Correo electrónico</label>
               <div class="input-icon">
                 <span class="field-icon">📧</span>
-                <input type="email" id="email" name="email" placeholder="tucorreo@example.com" autocomplete="email" required>
+                <input type="email" id="email" name="email" value="" placeholder="tucorreo@example.com" autocomplete="email" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="phone">Teléfono (opcional)</label>
+              <label for="telefono">Teléfono (opcional)</label>
               <div class="input-icon">
                 <span class="field-icon">📱</span>
-                <input type="tel" id="phone" name="phone" placeholder="Ej. +52 1 234 567 8900" autocomplete="tel">
+                <input type="tel" id="telefono" name="telefono" value="" placeholder="Ej. +52 1 234 567 8900" autocomplete="tel">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="subject">Asunto</label>
+              <label for="asunto">Asunto</label>
               <div class="input-icon">
                 <span class="field-icon">📝</span>
-                <select id="subject" name="subject" required>
+                <select id="asunto" name="asunto" required>
                   <option value="">Selecciona un asunto...</option>
-                  <option value="cotizacion">Solicitar cotización</option>
-                  <option value="servicio">Programar servicio</option>
-                  <option value="informacion">Información general</option>
-                  <option value="otro">Otro</option>
+                  <option value="Solicitar cotización">Solicitar cotización</option>
+                  <option value="Programar servicio">Programar servicio</option>
+                  <option value="Información general">Información general</option>
+                  <option value="Otro">Otro</option>
                 </select>
               </div>
             </div>
           </div>
 
           <div class="form-group full-width">
-            <label for="message">Mensaje</label>
+            <label for="mensaje">Mensaje</label>
             <div class="input-icon">
               <span class="field-icon">💬</span>
-              <textarea id="message" name="message" rows="5" placeholder="Cultivo, superficie (ha), localidad..." required></textarea>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cultivo, superficie (ha), localidad..." required></textarea>
             </div>
           </div>
 
-          <input type="hidden" name="_subject" value="Nuevo contacto desde la web">
-          <input type="hidden" name="_next" value="index.html">
-          <input type="text" name="_gotcha" style="display: none">
-
-          <button type="submit" class="btn btn-primary submit-btn">
+          <button type="submit" class="btn btn-primary submit-btn" id="enviarBtn">
             <span class="btn-icon">✉️</span>
             Enviar mensaje
           </button>
         </form>
         
-        <div id="form-status" class="form-status" style="display: none;"></div>
+        <div id="resultado" style="display: none; margin-top: 20px; padding: 20px; border-radius: 10px; text-align: center; font-weight: bold;"></div>
       </div>
 
       <aside class="contact-info-card">
@@ -205,57 +201,80 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
+  
   <script>
-    window.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('contactForm');
-      const status = document.getElementById('form-status');
-
-      function success() {
-        form.reset();
-        status.style.display = 'block';
-        status.innerHTML = "¡Gracias! Te contactaremos pronto.";
-        status.className = 'form-status success';
-      }
-
-      function error() {
-        status.style.display = 'block';
-        status.innerHTML = "¡Ups! Hubo un problema al enviar el mensaje.";
-        status.className = 'form-status error';
-      }
-
-      // handle the form submission event
-      form.addEventListener("submit", function(ev) {
-        ev.preventDefault();
-        var data = new FormData(form);
-        status.style.display = 'block';
-        status.innerHTML = "Enviando...";
-        status.className = 'form-status sending';
-
-        fetch(form.action, {
-          method: form.method,
-          body: data,
+      const resultado = document.getElementById('resultado');
+      const enviarBtn = document.getElementById('enviarBtn');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Obtener valores
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const asunto = document.getElementById('asunto').value;
+        const mensaje = document.getElementById('mensaje').value.trim();
+        
+        // Validar
+        if (!nombre || !email || !asunto || !mensaje) {
+          mostrarResultado('Por favor completa todos los campos obligatorios.', 'error');
+          return;
+        }
+        
+        // Cambiar botón
+        enviarBtn.innerHTML = '<span class="btn-icon">⏳</span>Enviando...';
+        enviarBtn.disabled = true;
+        
+        // Crear datos usando método compatible
+        const data = new URLSearchParams();
+        data.append('nombre', nombre);
+        data.append('email', email);
+        data.append('telefono', telefono);
+        data.append('asunto', asunto);
+        data.append('mensaje', mensaje);
+        data.append('_subject', 'Contacto Terratek: ' + asunto);
+        
+        // Enviar usando fetch con configuración específica para evitar popups
+        fetch('https://formspree.io/f/mgvnkzgv', {
+          method: 'POST',
           headers: {
-              'Accept': 'application/json'
-          }
-        }).then(response => {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: data,
+          mode: 'cors'
+        })
+        .then(response => {
           if (response.ok) {
-            success();
-            setTimeout(function() {
-              window.location.href = "index.html";
+            mostrarResultado('¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success');
+            form.reset();
+            setTimeout(() => {
+              window.location.href = 'index.html';
             }, 2000);
           } else {
-            response.json().then(data => {
-              if (Object.hasOwn(data, 'errors')) {
-                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-              } else {
-                error();
-              }
-            })
+            throw new Error('Error del servidor');
           }
-        }).catch(error => {
-          error();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          mostrarResultado('Error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+          enviarBtn.innerHTML = '<span class="btn-icon">✉️</span>Enviar mensaje';
+          enviarBtn.disabled = false;
         });
       });
+      
+      function mostrarResultado(mensaje, tipo) {
+        resultado.innerHTML = mensaje;
+        resultado.style.display = 'block';
+        resultado.style.backgroundColor = tipo === 'success' ? '#d4edda' : '#f8d7da';
+        resultado.style.color = tipo === 'success' ? '#155724' : '#721c24';
+        resultado.style.border = '1px solid ' + (tipo === 'success' ? '#c3e6cb' : '#f5c6cb');
+      }
     });
   </script>
 </body>
