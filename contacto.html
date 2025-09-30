@@ -202,6 +202,7 @@
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -229,43 +230,42 @@
         enviarBtn.innerHTML = '<span class="btn-icon">⏳</span>Enviando...';
         enviarBtn.disabled = true;
         
-        // Crear datos usando método compatible
-        const data = new URLSearchParams();
-        data.append('nombre', nombre);
-        data.append('email', email);
-        data.append('telefono', telefono);
-        data.append('asunto', asunto);
-        data.append('mensaje', mensaje);
-        data.append('_subject', 'Contacto Terratek: ' + asunto);
+        // Usar mailto como método más confiable (sin ventanas emergentes)
+        const emailBody = `
+Nuevo contacto desde Terratek Solutions
+
+Nombre: ${nombre}
+Email: ${email}
+Teléfono: ${telefono}
+Asunto: ${asunto}
+
+Mensaje:
+${mensaje}
+
+---
+Enviado desde: ${window.location.href}
+Fecha: ${new Date().toLocaleString('es-MX')}
+        `.trim();
         
-        // Enviar usando fetch con configuración específica para evitar popups
-        fetch('https://formspree.io/f/mgvnkzgv', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          },
-          body: data,
-          mode: 'cors'
-        })
-        .then(response => {
-          if (response.ok) {
-            mostrarResultado('¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success');
-            form.reset();
-            setTimeout(() => {
-              window.location.href = 'index.html';
-            }, 2000);
-          } else {
-            throw new Error('Error del servidor');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          mostrarResultado('Error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
-          enviarBtn.innerHTML = '<span class="btn-icon">✉️</span>Enviar mensaje';
-          enviarBtn.disabled = false;
-        });
+        const subject = `Contacto Terratek: ${asunto}`;
+        const mailtoLink = `mailto:terrateksolutions71@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Mostrar mensaje de éxito
+        mostrarResultado('¡Perfecto! Se abrirá tu cliente de email para enviar el mensaje.', 'success');
+        
+        // Abrir cliente de email después de un segundo
+        setTimeout(() => {
+          window.open(mailtoLink, '_blank');
+          form.reset();
+          
+          // Mostrar opción de regresar
+          mostrarResultado('Email preparado. Si no se abrió automáticamente, <a href="' + mailtoLink + '" style="color: #155724; text-decoration: underline;">haz clic aquí</a>. Te redirigiremos en unos segundos...', 'success');
+          
+          // Redirigir después de 5 segundos
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 5000);
+        }, 1000);
       });
       
       function mostrarResultado(mensaje, tipo) {
@@ -274,6 +274,14 @@
         resultado.style.backgroundColor = tipo === 'success' ? '#d4edda' : '#f8d7da';
         resultado.style.color = tipo === 'success' ? '#155724' : '#721c24';
         resultado.style.border = '1px solid ' + (tipo === 'success' ? '#c3e6cb' : '#f5c6cb');
+        resultado.style.borderRadius = '8px';
+        resultado.style.fontSize = '16px';
+        
+        // Restaurar botón si es error
+        if (tipo === 'error') {
+          enviarBtn.innerHTML = '<span class="btn-icon">✉️</span>Enviar mensaje';
+          enviarBtn.disabled = false;
+        }
       }
     });
   </script>
