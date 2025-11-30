@@ -1,6 +1,6 @@
-# Terratek Solutions - Sitio Web Oficial
+# Terratek AgroSolutions - Sitio Web Oficial
 
-Este es el repositorio del sitio web de **Terratek Solutions**, una empresa dedicada a ofrecer servicios de fumigación y fertilización con drones en el Istmo de Oaxaca.
+Este es el repositorio del sitio web de **Terratek AgroSolutions**, una empresa dedicada a ofrecer servicios de fumigación y fertilización con drones en el Istmo de Oaxaca.
 
 ## Estructura del sitio
 - `index.html` - Página principal
